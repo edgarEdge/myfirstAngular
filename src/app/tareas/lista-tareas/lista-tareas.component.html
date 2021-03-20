@@ -1,0 +1,21 @@
+<ul class="listaTareas" *ngIf="tareas && tareas.length; else listaVacia">
+    <!-- <li *ngFor="let tarea of tareas; let i = index" seleccionable -->
+    <li *ngFor="let tarea of tareas;" seleccionable
+        (seleccionar)="seleccionarTarea(tarea.id)" [seleccionada]="tarea.id===tareaSeleccionada">{{ tarea.descripcion }}
+        <span class="icono" (click)="borrarTarea(tarea.id)">
+            <i class="fas fa-trash"></i>
+        </span>
+    </li>
+</ul>
+
+<div *ngIf="tareas?.length" class="footer">
+    <span>Tienes {{ tareas.length }} tareas pendientes</span>
+    <button (click)="limpiarLista()">Limpiar</button>
+</div>
+
+<ng-template #listaVacia>
+    <div class="listaVacia">
+        <i class="fas fa-inbox"></i>
+        <span>No tienes tareas pendientes</span>
+    </div>
+</ng-template>

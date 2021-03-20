@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'xideral'`, () => {
+  it(`should have as title 'xdrl-curso'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('xideral');
+    expect(app.title).toEqual('xdrl-curso');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('xideral app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('xdrl-curso app is running!');
   });
 });

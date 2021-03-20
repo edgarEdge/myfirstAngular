@@ -1,0 +1,13 @@
+<header>
+    <span>Mis Tareas</span>
+    <button [routerLink]="['/nueva']">
+    <i class="fas fa-plus"></i>
+</button></header>
+<!-- <div class="inputTarea">
+    <input #inputTarea type="text" placeholder="Añade una tarea" />
+    <button (click)="createTarea(inputTarea)"><i class="fas fa-plus"></i></button>
+</div> -->
+<lista-tareas [tareas]="tareas"
+    (borrar)="borrarTarea($event)"
+    (limpiar)="limpiar()">
+  </lista-tareas>
