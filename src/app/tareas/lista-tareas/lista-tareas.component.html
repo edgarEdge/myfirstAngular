@@ -1,8 +1,7 @@
 <ul class="listaTareas" *ngIf="tareas && tareas.length; else listaVacia">
-    <!-- <li *ngFor="let tarea of tareas; let i = index" seleccionable -->
-    <li *ngFor="let tarea of tareas;" seleccionable
-        (seleccionar)="seleccionarTarea(tarea.id)" [seleccionada]="tarea.id===tareaSeleccionada">{{ tarea.descripcion }}
-        <span class="icono" (click)="borrarTarea(tarea.id)">
+    <li *ngFor="let tarea of tareas; let i = index" seleccionable
+        (seleccionar)="seleccionarTarea(i)" [seleccionada]="i===tareaSeleccionada">{{ tarea }}
+        <span class="icono" (click)="borrarTarea(i)">
             <i class="fas fa-trash"></i>
         </span>
     </li>

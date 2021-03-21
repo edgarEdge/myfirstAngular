@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { TareasService } from '../services/tareas.service';
-import { Tarea } from '../tareas.model';
 
 @Component({
   selector: 'admin-tareas',
@@ -9,19 +8,19 @@ import { Tarea } from '../tareas.model';
 })
 export class AdminTareasComponent {
 
-  tareas: Tarea[];
+  tareas: string[];
 
   constructor(private tareasService: TareasService) {
     this.initTareas();
   }
 
-  // createTarea(inputTarea: HTMLInputElement) {
-  //   const nuevaTarea = inputTarea.value;
-  //   console.log('Borrar desde admin-tareas', nuevaTarea);
-  //   this.tareasService.crearTarea(nuevaTarea);
-  //   inputTarea.value = '';
-  //   this.initTareas();
-  // }
+  createTarea(inputTarea: HTMLInputElement) {
+    const nuevaTarea = inputTarea.value;
+    console.log('Borrar desde admin-tareas', nuevaTarea);
+    this.tareasService.crearTarea(nuevaTarea);
+    inputTarea.value = '';
+    this.initTareas();
+  }
 
   borrarTarea(id: number) {
     console.log('Borrar desde admin-tareas', id);

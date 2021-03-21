@@ -1,32 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Tarea } from '../tareas.model';
 
 @Injectable()
 export class TareasService {
     
-    private currentId: number = 2;
-    private tareas: Tarea[] = [{
-        id: 1,
-        descripcion: 'Tarea1',
-        tipoTarea: 'acumulable',
-        duracion: 10000
-    }, {
-        id: 2,
-        descripcion: 'Tarea2',
-        tipoTarea: 'cronometrada',
-        duracion: 20000
-    }];
+    private tareas: string[] = ['Tarea1','Tarea2', 'Tarea3','Tarea4'];
     
     borrarTarea(id: number) {
         console.log('Borrar tarea desde servicio', id);
-        const index = this.tareas.findIndex(t => t.id===id);
-        this.tareas.splice(index, 1);
+        this.tareas.splice(id, 1);
     }
 
-    crearTarea(nuevaTarea: Tarea) {
+    crearTarea(nuevaTarea: string) {
         console.log('Crear tarea desde servicio', nuevaTarea);
-        nuevaTarea.id = ++this.currentId;
-        this.tareas.push(nuevaTarea);
+        if (nuevaTarea.trim()) {
+            this.tareas.push(nuevaTarea);
+        }
     }
 
     obtenerTareas() {

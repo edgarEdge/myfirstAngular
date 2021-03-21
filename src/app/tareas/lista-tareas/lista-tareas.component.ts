@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Tarea } from '../tareas.model';
 
 @Component({
   selector: 'lista-tareas',
@@ -9,7 +8,7 @@ import { Tarea } from '../tareas.model';
 export class ListaTareasComponent {
 
   @Input()
-  tareas: Tarea[] = [];
+  tareas: string[] = [];
 
   @Output()
   borrar: EventEmitter<number> = new EventEmitter<number>();
@@ -28,12 +27,12 @@ export class ListaTareasComponent {
     this.limpiar.emit();
   }
 
-  borrarTarea(id: number) {
-    console.log('Borrar tarea desde lista-tarea', id);
-    this.borrar.emit(id);
+  borrarTarea(i: number) {
+    console.log('Borrar tarea desde lista-tarea', i);
+    this.borrar.emit(i);
   }
 
-  seleccionarTarea(id: number) {
-    this.tareaSeleccionada = id;
+  seleccionarTarea(i: number) {
+    this.tareaSeleccionada = i;
   }
 }
